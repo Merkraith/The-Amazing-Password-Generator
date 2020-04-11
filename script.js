@@ -22,16 +22,18 @@ if (pwsize < 8) {
   alert("Your Amazing Password must be at least 8 characters");
   return;
 }
+
 // if size is to big it ends
 if (pwsize > 128) {
   alert("Your Amazing Password must be less than 129 characters");
   return;
 }
 // if its not a number it ends
-if (pwsize = isNaN) {
-  alert("Your Amazing Password length must be a number");
-return;
+
+if (isNaN(pwsize)) {
+  return 'Not a Number!';
 }
+
 // confirm boxes to get password criteria
 
 let pwlowercase = confirm("Click OK to use lowercase letters");
@@ -55,8 +57,6 @@ if (
   let passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
-  
 
 }
 
