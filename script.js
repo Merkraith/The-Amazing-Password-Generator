@@ -4,6 +4,50 @@ let generateBtn = document.querySelector("#generate");
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
+function getRandomChar() {
+
+  let lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+  let upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+  let numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+  let symbols = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "|", "}", "~"];
+
+  let finalArr = [lowerCase, upperCase, numbers, symbols]
+  let lowerlettersConfirmed = true;
+  let upperlettersConfirmed = true;
+  let numbersConfirmed = true;
+  let symbolsConfirmed = true;
+
+  if (lowerlettersConfirmed) {
+    finalArr.push(lowerCase);
+  }
+
+  if (upperlettersConfirmed) {
+    finalArr.push(upperCase);
+  }
+
+  if (numbersConfirmed) {
+    finalArr.push(numbers);
+  }
+  if (symbolsConfirmed) {
+    finalArr.push(symbols);
+  }
+
+
+
+  for (let index = 0; index < finalArr.length; index++) {
+    let RNG = Math.floor(Math.random() * finalArr.length)
+
+    const insideArr = finalArr[RNG];
+
+    for (let j = 0; j < insideArr.length; j++) {
+      let RNG = Math.floor(Math.random() * insideArr.length)
+
+      const insideElement = insideArr[RNG];
+      return insideElement;
+    
+    }
+  }
+}
 
 // Write password to the #password input
 function writePassword() {
@@ -46,59 +90,15 @@ function writePassword() {
     alert("Sorry you must select at least one of the character types");
     return;
   }
+
+  for (let i = 0; i < pwLength; i++) {
+    let randChar = getRandomChar();
+    console.log(randChar);
+    alert("Your Amazing Password is:" + randChar);
+
+  }
+
 }
-function getRandomChar() {
-
-  let lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-  let upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-  let numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-  let symbols = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "|", "}", "~"];
-
-  let allCharacters = [lowercase, upperCase, numbers, symbols]
-  let lowerlettersConfirmed = true;
-  let upperlettersConfirmed = true;
-  let numbersConfirmed = true;
-  let symbolsConfirmed = true;
-
-  if (lowerlettersConfirmed) {
-    finalArr.push(arrLowerLetters);
-  }
-
-  if (upperlettersConfirmed) {
-    finalArr.push(arrUpperLetters);
-  }
-
-  if (numbersConfirmed) {
-    finalArr.push(arrNumbers);
-  }
-  if (symbolsConfirmed) {
-    finalArr.push(arrSymbols);
-  }
-
-  for (let index = 0; index < allCharacters.length; index++) {
-    let RNG = Math.floor(Math.random() * allCharacters.length)
-
-    const insideArr = finalArr[RNG];
-
-    for (let j = 0; j < insideArr.length; j++) {
-      let RNG = Math.floor(Math.random() * insideArr.length)
-
-      const insideElement = insideArr[RNG];
-      return insideElement;
-
-    }
-  }
-}
-
-for (let i = 0; i < pwLength; i++) {
-  let randChar = getRandomChar();
-  console.log(randchar);
-};
-
-let password = generatePassword() {
-  let passwordText = document.querySelector("#password");
-  }
-  passwordText.value = password;
 
 
 
