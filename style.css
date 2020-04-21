@@ -138,7 +138,7 @@ button[disabled] {
   }
 }
 
-.card-header h2 {
+header h1{
   font-size: 60px;
   font-weight: 30px;
   text-shadow: rgba(0, 0, 0, 0.15);
